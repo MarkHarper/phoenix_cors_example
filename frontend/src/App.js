@@ -1,24 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { listImages } from './services/images';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [images, setImages] = useState();
+
+  useEffect(() => {
+    if (images) return;
+
+    (async () => {
+      const _images = await listImages();
+
+      setImages(_images);
+    })();
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {images && images.map(image => (
+        <img
+          src={image.url}
+          style={
+            { 
+              width: '200px', 
+              height: '200px', 
+              marginBottom: '10px' 
+            }
+          }
+        />
+      ))}
     </div>
   );
 }
