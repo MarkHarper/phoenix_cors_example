@@ -17,15 +17,15 @@ function App() {
     })();
   })
 
+
   return (
     <div className="App">
-      {images && images.map(image => (
+      {images && images.map((image, index) => (
         <img
+          key={index}
           src={image.url}
           style={
             { 
-              width: '200px', 
-              height: '200px', 
               marginBottom: '10px' 
             }
           }

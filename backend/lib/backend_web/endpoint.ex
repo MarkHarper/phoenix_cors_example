@@ -42,5 +42,8 @@ defmodule BackendWeb.Endpoint do
     key: "_backend_key",
     signing_salt: "gf4yqU17"
 
+  plug Corsica,
+    origins: "*"
+
   plug BackendWeb.Router
 end

@@ -5,5 +5,8 @@ export {
 };
 
 async function listImages() {
-  return fetch(`${baseUrl}/images`);
+  const res = await fetch(`${baseUrl}/images`);
+  const images = (await res.json()).data;
+
+  return images;
 }

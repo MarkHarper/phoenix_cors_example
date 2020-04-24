@@ -9,3 +9,10 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+
+%Backend.Images.Image{}
+  |> Backend.Images.Image.changeset(%{
+    url: "https://www.reactiongifs.us/wp-content/uploads/2013/07/its_working_star_wars.gif",
+  })
+  |> Backend.Repo.insert!()
