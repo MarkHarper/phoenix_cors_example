@@ -23,6 +23,8 @@ config :backend, BackendWeb.Endpoint,
   check_origin: false,
   watchers: []
 
+config :backend, origins: ["http://localhost:3000"]
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
