@@ -43,7 +43,7 @@ defmodule BackendWeb.Endpoint do
     signing_salt: "gf4yqU17"
 
   plug Corsica,
-    origins: "*"
+    origins: ["http://localhost:3000"]
 
   plug BackendWeb.Router
 end
